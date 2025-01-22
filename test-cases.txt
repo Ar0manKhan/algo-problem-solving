@@ -1,0 +1,80 @@
+// golang
+
+
+type TestCase struct {
+  items   [][]int
+  queries []int
+  out     []int
+}
+
+testCases := []TestCase{
+  {[][]int{{1, 2}, {3, 2}, {2, 4}, {5, 6}, {3, 5}}, []int{1, 2, 3, 4, 5, 6}, []int{2, 4, 5, 5, 6, 6}},
+  {[][]int{{1, 2}, {1, 2}, {1, 3}, {1, 4}}, []int{1}, []int{4}},
+  {[][]int{{10, 1000}}, []int{5}, []int{0}},
+}
+
+for _, tc := range testCases {
+  ans := maximumBeauty(slices.Clone(tc.items), tc.queries)
+  fmt.Println(slices.Equal(ans, tc.out), "|", ans, "|", tc)
+}
+
+--------------------------------------------------------------------------------
+
+type TestCase struct {
+  s      string
+  spaces []int
+  out    string
+}
+
+testCases := []TestCase{
+  {"LeetcodeHelpsMeLearn", []int{8, 13, 15}, "Leetcode Helps Me Learn"},
+  {"icodeinpython", []int{1, 5, 7, 9}, "i code in py thon"},
+  {"spacing", []int{0, 1, 2, 3, 4, 5, 6}, " s p a c i n g"},
+}
+
+for _, tc := range testCases {
+  ans := addSpaces(tc.s, tc.spaces)
+  fmt.Println(ans == tc.out, "|", ans, "|", tc)
+}
+
+
+--------------------------------------------------------------------------------
+	type TestCase struct {
+		num1, num2 []int
+		out        int
+	}
+
+	testCases := []TestCase{
+		{[]int{2, 1, 3}, []int{10, 2, 5, 0}, 13},
+		{[]int{1, 2}, []int{3, 4}, 0},
+	}
+
+	for _, tc := range testCases {
+		ans := xorAllNums(tc.num1, tc.num2)
+		fmt.Println(tc.out == ans, "|", ans, "|", tc)
+	}
+
+
+--------------------------------------------------------------------------------
+
+	type TestCase struct {
+		isWater [][]int
+		out     [][]int
+	}
+
+	testCases := []TestCase{}
+
+	for _, tc := range testCases {
+		ans := highestPeak(tc.isWater)
+
+		for i, v := range ans {
+			if !slices.Equal(v, tc.out[i]) {
+				fmt.Println(false, "|", ans, "|", tc)
+				break
+			}
+		}
+		fmt.Println(true, "|", ans, "|", tc)
+	}
+
+
+
