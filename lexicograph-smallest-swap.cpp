@@ -2,7 +2,6 @@
 #include <fmt/base.h>
 #include <fmt/core.h>
 #include <fmt/ranges.h>
-#include <numeric>
 #include <vector>
 
 using namespace std;
