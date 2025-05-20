@@ -18,7 +18,7 @@ fi
 TEMP_BINARY=$(mktemp)
 
 # Compile the C++ file with LeetCode-like settings
-clang++-19 \
+clang++-20 \
   -std=c++23 \
   -stdlib=libstdc++ \
   -Wall -Wextra \
