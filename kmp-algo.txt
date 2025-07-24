@@ -1,0 +1,40 @@
+bool isSubsequence(string s, string t) {
+  int sn = s.size();
+
+  if (sn == 0)
+    return true;
+  // kmp algo
+  // building lps
+  vector<int> lps(sn);
+
+  int prevLps = 0;
+  for (int i = 1; i < sn;) {
+    if (s[i] == s[prevLps]) {
+      prevLps++;
+      lps[i++] = prevLps;
+    } else if (prevLps == 0) {
+      lps[i++] = 0;
+    } else {
+      prevLps = lps[prevLps - 1];
+    }
+  }
+
+  // finding the matching string using lps
+  int tn = t.size();
+  for (int i = 0, j = 0; i < tn;) {
+    if (t[i] == s[j]) {
+      i++;
+      j++;
+    } else if (j == 0) {
+      i++;
+    } else {
+      j = lps[j - 1];
+    }
+
+    if (j == sn) {
+      return true;
+    }
+  }
+
+  return false;
+}
